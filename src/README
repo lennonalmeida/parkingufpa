@@ -1,0 +1,9 @@
+To use mqtt + raspberry we have to install paho.mqtt from eclipse
+
+USING PIP
+	pip install paho-mqtt
+USING GIT CLONE
+	git clone https://github.com/eclipse/paho.mqtt.python
+	cd paho.mqtt.python
+	python setup.py install
+
