@@ -23,6 +23,20 @@ estado = False
 GPIO.output(led,l2)
 GPIO.output(led2,l1)
 
+##import threading
+#
+# def worker(num):
+#     """thread worker function"""
+#     print 'Worker: %s' % num
+#     return
+#
+# threads = []
+# for i in range(5):
+#     t = threading.Thread(target=worker, args=(i,))
+#     threads.append(t)
+#     t.start()
+
+
 def send_data_mqtt(message):
         publish.single(topic, message, hostname=broker)
 
@@ -30,7 +44,7 @@ if __name__ == "__main__":
 	while True:
 	    estado = GPIO.input(sensor)
 	    print("Estado: "+str(estado)+"\tEstado anterior: "+str(estado_ant))
-	
+
 	    if estado_ant == False and estado == True:
 	        l1 = not l1
 	        l2 = not l2
