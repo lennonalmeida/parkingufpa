@@ -60,23 +60,24 @@ message = ['0', '0', '0', '0']
 def send_data_mqtt(message):
         publish.single(topic, message, hostname=broker)
 def thread_sensor(index):
-    #while True:
+    while True:
         # estado[index] = GPIO.input(sensor[index])
-    estado[index] = sensor[index]
+        estado[index] = sensor[index]
     
-    if estado_ant[index] == False and estado[index] == True:
-        l1[index] = not l1[index]
-        l2[index] = not l2[index]
-       	# GPIO.output(led[index],l2[index])
-       	# GPIO.output(led2[index],l1[index])
-	if l2[index] == False:
+        if estado_ant[index] == False and estado[index] == True:
+            l1[index] = not l1[index]
+            l2[index] = not l2[index]
+       	    # GPIO.output(led[index],l2[index])
+       	    # GPIO.output(led2[index],l1[index])
+	    if l2[index] == False:
 		message[index] = str(index)+"/vermelho"
-	else:
+	    else:
 		message[index] = str(index)+"/verde"
-        time.sleep(5)
-        estado_ant[index] = estado[index]
-    print(message)
-    time.sleep(1)
+            time.sleep(5)
+            estado_ant[index] = estado[index]
+        if index == 3:
+           print(message)
+        time.sleep(1)
 if __name__ == "__main__":
      threads = []
      for i in range(4): #i is index to vectors
