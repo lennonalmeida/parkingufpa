@@ -63,7 +63,7 @@ def thread_sensor(index):
     while True:
         # estado[index] = GPIO.input(sensor[index])
         estado[index] = sensor[index]
-    
+
         if estado_ant[index] == False and estado[index] == True:
             l1[index] = not l1[index]
             l2[index] = not l2[index]
@@ -73,8 +73,8 @@ def thread_sensor(index):
 		message[index] = str(index)+"/vermelho"
 	    else:
 		message[index] = str(index)+"/verde"
-            time.sleep(5)
-            estado_ant[index] = estado[index]
+        time.sleep(5)
+        estado_ant[index] = estado[index]
         if index == 3:
            print(message)
         time.sleep(1)
@@ -84,4 +84,3 @@ if __name__ == "__main__":
          t = threading.Thread(target=thread_sensor, args=(i,))
          threads.append(t)
          t.start()
-       

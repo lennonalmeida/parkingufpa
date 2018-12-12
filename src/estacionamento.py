@@ -54,7 +54,6 @@ if __name__ == "__main__":
 			message = "1/vermelho"
 		else:
 			message = "1/verde"
-		send_data_mqtt(message)
-	        time.sleep(5)
+	    send_data_mqtt(message)
 	    estado_ant = estado
-	    time.sleep(1)
+        time.sleep(1)
